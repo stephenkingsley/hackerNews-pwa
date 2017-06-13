@@ -3,20 +3,19 @@ import { connect } from 'react-redux';
 import { getData } from './actions/comment';
 import Scroll from './utils/scroll';
 import Container from './Container';
-import Item from './components/Item';
 
-class App extends Container {
+class Show extends Container {
   componentWillMount() {
-    this.props.dispatch(getData('news', 1));
-    Scroll(() => this.props.dispatch(getData('news', this.page += 1)));
+    this.props.dispatch(getData('show', 1));
+    Scroll(() => this.props.dispatch(getData('show', this.page += 1)));
   }
 
   render() {
-    const { news } = this.props;
-    return this.renderList(news);
+    const { show } = this.props;
+    return this.renderList(show);
   }
 }
 
 const mapStateToProps = state => state.comment;
 
-export default connect(mapStateToProps)(App);
+export default connect(mapStateToProps)(Show);

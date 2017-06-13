@@ -5,18 +5,18 @@ import Scroll from './utils/scroll';
 import Container from './Container';
 import Item from './components/Item';
 
-class App extends Container {
+class Ask extends Container {
   componentWillMount() {
-    this.props.dispatch(getData('news', 1));
-    Scroll(() => this.props.dispatch(getData('news', this.page += 1)));
+    this.props.dispatch(getData('ask', 1));
+    Scroll(() => this.props.dispatch(getData('ask', this.page += 1)));
   }
 
   render() {
-    const { news } = this.props;
-    return this.renderList(news);
+    const { ask } = this.props;
+    return this.renderList(ask);
   }
 }
 
 const mapStateToProps = state => state.comment;
 
-export default connect(mapStateToProps)(App);
+export default connect(mapStateToProps)(Ask);
