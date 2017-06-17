@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import Item from './components/Item';
+import { loadingPic } from './public/loading';
 
 export default class Container extends Component {
   constructor() {
@@ -22,7 +23,7 @@ export default class Container extends Component {
   renderLoading() {
     return (
       <div className="loading">
-        <img src="/loading.gif" alt="loading" />
+        <img src={loadingPic} alt="loading" />
       </div>
     );
   }
