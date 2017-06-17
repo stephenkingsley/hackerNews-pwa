@@ -19,12 +19,24 @@ export default class Container extends Component {
     }
   }
 
+  renderLoading() {
+    return (
+      <div className="loading">
+        <img src="/loading.gif" alt="loading" />
+      </div>
+    );
+  }
+
   renderList(data) {
     return (
       <div className="content">
-        <ol>
-          {this.renderItem(data)}
-        </ol>
+        {
+          (data && data.length) > 0 ?
+            <ol>
+              {this.renderItem(data)}
+            </ol> :
+            this.renderLoading()
+        }
       </div>
     );
   }

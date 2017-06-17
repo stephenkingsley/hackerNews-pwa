@@ -124,6 +124,16 @@ ol {
   max-width: 100%;
 }
 
+.loading {
+  height: 100%;
+  width: 100%;
+}
+
+.loading > img {
+  width: 100%;
+  height: 100%;
+}
+
 .one-line-ellipsis {
   overflow: hidden;
   text-overflow: ellipsis;
