@@ -4,6 +4,25 @@ body {
   font-family: sans-serif;
 }
 
+a {
+  text-decoration: none;
+  max-width: 100%;
+  word-break: break-all;
+}
+
+a:link {
+  color: #333333;
+}
+a:active {
+  color: #333333;
+}
+a:visited {
+  color: #333333;
+}
+a:hover {
+  color: #333333;
+}
+
 ul {
   list-style: none;
 }
@@ -26,6 +45,8 @@ ol {
   height: 48px;
   padding: 0 16px;
   background-color: #222;
+  display: flex;
+  align-items: center;
 }
 
 .topbar > ul {
@@ -34,8 +55,8 @@ ol {
   align-items: center;
   height: 100%;
   max-width: 1200px;
-  margin: 0 auto;
   overflow: hidden;
+  margin-left: -20px;
 }
 
 .topbar > ul > li {
@@ -72,6 +93,35 @@ ol {
 .content li > div:last-child {
   color: #999999;
   font-size: 0.8rem;
+}
+
+.item-footer {
+  text-decoration: underline;
+}
+
+.story-top {
+  border-bottom: 1px solid #ebebeb;
+}
+
+.story-title {
+  font-size: 1.2rem;
+  margin-left: 1.2rem;
+  padding-top: 1rem;
+  font-weight: bold;
+}
+
+.story-ol > li {
+  height: 1.2rem;
+  border-bottom: 0px;
+  padding: 0px;
+  color: #999999;
+}
+
+.comment-item {
+  border-bottom: 1px solid #ebebeb;
+  padding: 1rem;
+  font-size: 0.8rem;
+  max-width: 100%;
 }
 
 .one-line-ellipsis {

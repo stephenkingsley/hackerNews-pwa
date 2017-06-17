@@ -1,9 +1,11 @@
-import { NEWS_LIST, SHOW_LIST, ASK_LIST } from '../const';
+import { NEWS_LIST, SHOW_LIST, ASK_LIST, NEWEST_LIST, JOBS_LIST } from '../const';
 
 const initState = {
   news: [],
   show: [],
   ask: [],
+  newest: [],
+  jobs: [],
 };
 
 export default (state = initState, action) => {
@@ -22,6 +24,16 @@ export default (state = initState, action) => {
       return {
         ...state,
         ask: state.ask.concat(action.data),
+      };
+    case NEWEST_LIST:
+      return {
+        ...state,
+        newest: state.newest.concat(action.data),
+      };
+    case JOBS_LIST:
+      return {
+        ...state,
+        jobs: state.jobs.concat(action.data),
       };
     default:
       return state;
