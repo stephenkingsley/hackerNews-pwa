@@ -6,13 +6,25 @@ import Container from './Container';
 
 class Jobs extends Container {
   componentWillMount() {
-    this.props.dispatch(getData('jobs', 1));
-    Scroll(() => this.props.dispatch(getData('jobs', this.page += 1)));
+    const page = this.props.match.params.page;
+    this.props.dispatch(getData('jobs', page));
+  }
+
+  componentWillReceiveProps(nextProps) {
+    const newPage = nextProps.match.params.page;
+    const page = this.props.match.params.page;
+    console.log(newPage, page);
+    if (newPage !== page) {
+      this.props.dispatch(getData('jobs', newPage));
+    }
   }
 
   render() {
     const { jobs } = this.props;
-    return this.renderList(jobs);
+    return <div>
+      {this.renderList(jobs)}
+      {this.renderPage('jobs')}
+    </div>;
   }
 }
 

@@ -13,7 +13,11 @@ export default class Item extends Component {
         </div>
         <div>
           <Link to={`/item/${data.id}`}>
-            <span className="item-footer">points: {data.points} | comments_count: {data.comments_count} | time_ago: {data.time_ago}</span>
+            <span className="item-footer">
+              {data.points} by {data.user} |
+              {'  ' + data.time_ago} |
+              {'  ' + data.comments_count} comments
+            </span>
           </Link>
         </div>
       </li>

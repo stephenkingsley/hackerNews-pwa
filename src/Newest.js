@@ -6,13 +6,26 @@ import Container from './Container';
 
 class Newest extends Container {
   componentWillMount() {
-    this.props.dispatch(getData('newest', 1));
-    Scroll(() => this.props.dispatch(getData('newest', this.page += 1)));
+    const page = this.props.match.params.page;
+    this.props.dispatch(getData('newest', page));
+  }
+
+  componentWillReceiveProps(nextProps) {
+    const newPage = nextProps.match.params.page;
+    const page = this.props.match.params.page;
+    console.log(newPage, page);
+    if (newPage !== page) {
+      this.props.dispatch(getData('newest', newPage));
+    }
   }
 
   render() {
-    const { newest } = this.props;
-    return this.renderList(newest);
+    const { newest, match } = this.props;
+    const page = Number(match.params.page);
+    return <div>
+      {this.renderList(newest)}
+      {this.renderPage('newest')}
+    </div>;
   }
 }
 

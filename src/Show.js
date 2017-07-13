@@ -6,13 +6,26 @@ import Container from './Container';
 
 class Show extends Container {
   componentWillMount() {
-    this.props.dispatch(getData('show', 1));
-    Scroll(() => this.props.dispatch(getData('show', this.page += 1)));
+    const page = this.props.match.params.page;
+    this.props.dispatch(getData('show', page));
+  }
+
+  componentWillReceiveProps(nextProps) {
+    const newPage = nextProps.match.params.page;
+    const page = this.props.match.params.page;
+    console.log(newPage, page);
+    if (newPage !== page) {
+      this.props.dispatch(getData('show', newPage));
+    }
   }
 
   render() {
-    const { show } = this.props;
-    return this.renderList(show);
+    const { show, match } = this.props;
+    const page = Number(match.params.page);
+    return <div>
+      {this.renderList(show)}
+      {this.renderPage('show')}
+    </div>;
   }
 }
 

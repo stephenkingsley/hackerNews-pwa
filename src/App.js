@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
+import clone from 'lodash/clone';
 import { getData } from './actions/comment';
 import Scroll from './utils/scroll';
 import Container from './Container';
@@ -7,13 +8,25 @@ import Item from './components/Item';
 
 class App extends Container {
   componentWillMount() {
-    this.props.dispatch(getData('news', 1));
-    Scroll(() => this.props.dispatch(getData('news', this.page += 1)));
+    const page = this.props.match.params.page;
+    this.props.dispatch(getData('news', page));
+  }
+
+  componentWillReceiveProps(nextProps) {
+    const newPage = nextProps.match.params.page;
+    const page = this.props.match.params.page;
+    console.log(newPage, page);
+    if (newPage !== page) {
+      this.props.dispatch(getData('news', newPage));
+    }
   }
 
   render() {
     const { news } = this.props;
-    return this.renderList(news);
+    return <div>
+      {this.renderList(news)}
+      {this.renderPage()}
+    </div>;
   }
 }
 

@@ -13,27 +13,27 @@ export default (state = initState, action) => {
     case NEWS_LIST:
       return {
         ...state,
-        news: state.news.concat(action.data),
+        news: action.data,
       };
     case SHOW_LIST:
       return {
         ...state,
-        show: state.show.concat(action.data),
+        show: action.data,
       };
     case ASK_LIST:
       return {
         ...state,
-        ask: state.ask.concat(action.data),
+        ask: action.data,
       };
     case NEWEST_LIST:
       return {
         ...state,
-        newest: state.newest.concat(action.data),
+        newest: action.data,
       };
     case JOBS_LIST:
       return {
         ...state,
-        jobs: state.jobs.concat(action.data),
+        jobs: action.data,
       };
     default:
       return state;

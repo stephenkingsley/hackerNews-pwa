@@ -44,18 +44,18 @@ ReactDOM.render(
             alt="logo"
           />
           <ul>
-            <li><Link to="/">NEWS</Link></li>
-            <li><Link to="/newest">NEW</Link></li>
-            <li><Link to="/show">SHOW</Link></li>
-            <li><Link to="/ask">ASK</Link></li>
-            <li><Link to="/jobs">JOBS</Link></li>
+            <li><Link to="/1">NEWS</Link></li>
+            <li><Link to="/newest/1">NEW</Link></li>
+            <li><Link to="/show/1">SHOW</Link></li>
+            <li><Link to="/ask/1">ASK</Link></li>
+            <li><Link to="/jobs/1">JOBS</Link></li>
           </ul>
         </div>
-        <Route exact path="/" component={App} />
-        <Route exact path="/show" component={Show} />
-        <Route exact path="/ask" component={Ask} />
-        <Route exact path="/newest" component={Newest} />
-        <Route exact path="/jobs" component={Jobs} />
+        <Route exact path="/:page" component={App} />
+        <Route exact path="/show/:page" component={Show} />
+        <Route exact path="/ask/:page" component={Ask} />
+        <Route exact path="/newest/:page" component={Newest} />
+        <Route exact path="/jobs/:page" component={Jobs} />
         <Route exact path="/item/:id" component={Story} />
       </div>
       </Router>

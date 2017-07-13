@@ -7,13 +7,25 @@ import Item from './components/Item';
 
 class Ask extends Container {
   componentWillMount() {
-    this.props.dispatch(getData('ask', 1));
-    Scroll(() => this.props.dispatch(getData('ask', this.page += 1)));
+    const page = this.props.match.params.page;
+    this.props.dispatch(getData('ask', page));
+  }
+
+  componentWillReceiveProps(nextProps) {
+    const newPage = nextProps.match.params.page;
+    const page = this.props.match.params.page;
+    console.log(newPage, page);
+    if (newPage !== page) {
+      this.props.dispatch(getData('ask', newPage));
+    }
   }
 
   render() {
     const { ask } = this.props;
-    return this.renderList(ask);
+    return <div>
+      {this.renderList(ask)}
+      {this.renderPage('ask')}
+    </div>;
   }
 }
 

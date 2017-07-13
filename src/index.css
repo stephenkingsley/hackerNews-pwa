@@ -124,6 +124,13 @@ ol {
   max-width: 100%;
 }
 
+.footer-page {
+  width: 100%;
+  height: 32px;
+  text-align: center;
+  line-height: 16px;
+}
+
 .loading {
   height: 100%;
   width: 100%;
