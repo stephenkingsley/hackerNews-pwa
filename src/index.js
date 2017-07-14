@@ -9,7 +9,8 @@ import reducer from './reducers'
 import {
   BrowserRouter as Router,
   Route,
-  Link
+  Link,
+  Redirect
 } from 'react-router-dom'
 
 import App from './App';
@@ -57,6 +58,7 @@ ReactDOM.render(
         <Route exact path="/newest/:page" component={Newest} />
         <Route exact path="/jobs/:page" component={Jobs} />
         <Route exact path="/item/:id" component={Story} />
+        <Redirect from="/*" to="/1" />
       </div>
       </Router>
   </Provider>

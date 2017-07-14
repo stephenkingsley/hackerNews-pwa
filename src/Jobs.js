@@ -13,7 +13,6 @@ class Jobs extends Container {
   componentWillReceiveProps(nextProps) {
     const newPage = nextProps.match.params.page;
     const page = this.props.match.params.page;
-    console.log(newPage, page);
     if (newPage !== page) {
       this.props.dispatch(getData('jobs', newPage));
     }
