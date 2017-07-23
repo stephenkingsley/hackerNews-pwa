@@ -40,7 +40,6 @@ class Story extends Component {
 
   renderComments(data) {
     if (data && Object.hasOwnProperty.call(data, 'comments') && data.comments.length > 0) {
-      console.log(data.comments);
       return (
         <div>
           {data.comments.map((ele, key) =>

@@ -18,7 +18,7 @@ export default class Container extends Component {
   renderItem(data) {
     if (data && data.length > 0) {
       return data.map((ele, index) => (
-        <Item index={index} data={ele} key={index} />
+        <Item index={index} data={ele} key={index} page={this.props.match.params.page} />
       ));
     }
   }
@@ -73,7 +73,7 @@ export default class Container extends Component {
       <div className="footer-page">
         <Link to={newTypePrve}>{'< prev --- '}</Link>
         <span>{page}</span>
-      <Link to={newTypeNext}>{' --- next >'}</Link>
+        <Link to={newTypeNext}>{' --- next >'}</Link>
       </div>
     );
   }

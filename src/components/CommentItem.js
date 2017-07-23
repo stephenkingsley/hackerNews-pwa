@@ -7,9 +7,27 @@ export default (props) => {
         marginLeft: `${props.type * 40}px`,
       }}
       className="comment-item"
-      dangerouslySetInnerHTML={{ __html: props.content }}
       onClick={() => reply(props.id)}
-    />
+    >
+      <span
+        style={{
+          textDecoration: 'underline',
+        }}
+      >
+        {props.user}
+      </span>
+      &nbsp;&nbsp;&nbsp;
+      <span
+        style={{
+          color: '#999999',
+        }}
+      >
+        {props.timeAgo}
+      </span>
+      <div
+        dangerouslySetInnerHTML={{ __html: props.content }}
+      />
+    </div>
   );
 };
 

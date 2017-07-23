@@ -13,6 +13,7 @@ import {
   Redirect
 } from 'react-router-dom'
 
+import Default from './Default';
 import App from './App';
 import Newest from './Newest';
 import Show from './Show';
@@ -52,13 +53,13 @@ ReactDOM.render(
             <li><Link to="/jobs/1">JOBS</Link></li>
           </ul>
         </div>
+        <Route exact path="/" component={Default} />
         <Route exact path="/:page" component={App} />
         <Route exact path="/show/:page" component={Show} />
         <Route exact path="/ask/:page" component={Ask} />
         <Route exact path="/newest/:page" component={Newest} />
         <Route exact path="/jobs/:page" component={Jobs} />
         <Route exact path="/item/:id" component={Story} />
-        <Redirect from="/*" to="/1" />
       </div>
       </Router>
   </Provider>
