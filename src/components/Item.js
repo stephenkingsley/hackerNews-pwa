@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {
-  Link
+  Link,
+  Redirect,
 } from 'react-router-dom'
 
 export default class Item extends Component {
@@ -11,8 +12,7 @@ export default class Item extends Component {
       // window.location.href = url;
       window.open(url);
     } catch (e) {
-      // window.location.href = `https://news.ycombinator.com/${url}`;
-      window.open(`https://news.ycombinator.com/${url}`);
+      const id = url.match(/id=([0-9]*)/, 'g');
     }
   }
 
@@ -26,7 +26,7 @@ export default class Item extends Component {
         <div>
           <Link to={`/item/${data.id}`}>
             <span className="item-footer">
-              {data.points} by {data.user} |
+              { data.points ? `${data.points} by ${data.user} |` : '  ' }
               {'  ' + data.time_ago} |
               {data.comments_count > 0 ? `   ${data.comments_count}   comments` : '   discuss'}
             </span>

@@ -15,6 +15,10 @@ export default class Container extends Component {
     window.scrollTo(0, 0);
   }
 
+  scrollTop() {
+    window.scrollTo(0, 0);
+  }
+
   renderItem(data) {
     if (data && data.length > 0) {
       return data.map((ele, index) => (
@@ -71,9 +75,9 @@ export default class Container extends Component {
     }
     return (
       <div className="footer-page">
-        <Link to={newTypePrve}>{'< prev --- '}</Link>
+        <Link to={newTypePrve} onClick={() => this.scrollTop()}>{'< prev --- '}</Link>
         <span>{page}</span>
-        <Link to={newTypeNext}>{' --- next >'}</Link>
+        <Link to={newTypeNext} onClick={() => this.scrollTop()}>{' --- next >'}</Link>
       </div>
     );
   }
