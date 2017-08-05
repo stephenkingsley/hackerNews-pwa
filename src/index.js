@@ -39,7 +39,6 @@ const defaultChannelList = [
 ];
 
 const changeChannel = (event) => {
-  console.log(event.target);
   const channelList = document.querySelectorAll('.channel > a');
   if (channelList && channelList.length > 0) {
     for (let i = 0; i < channelList.length; i += 1) {
@@ -50,7 +49,6 @@ const changeChannel = (event) => {
 };
 
 const initChannel = () => {
-  console.log('ccc');
   const path = window.location.pathname.match(/\/([a-z]*)\/([0-9]*)/, 'g');
   let channel = 'news';
   if (path) {
