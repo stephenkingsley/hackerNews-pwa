@@ -12,7 +12,7 @@ class App extends Container {
     this.props.dispatch(getData('news', page));
   }
 
-  componentWillReceiveProps(nextProps) {
+  componentWillReceiveProps(nextProps, nextState, context) {
     const newPage = nextProps.match.params.page;
     const page = this.props.match.params.page;
     if (newPage !== page) {
@@ -21,6 +21,7 @@ class App extends Container {
   }
 
   render() {
+    console.log(this.props);
     const { news } = this.props;
     return <div>
       {this.renderList(news)}
@@ -29,6 +30,9 @@ class App extends Container {
   }
 }
 
-const mapStateToProps = state => state.comment;
+const mapStateToProps = state => {
+  console.log(state);
+  return state.comment
+};
 
 export default connect(mapStateToProps)(App);
