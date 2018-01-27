@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import Item from "./components/Item";
-import { loadingPic } from "./public/loading";
+import Spinner from "./components/Spinner";
 
 export default class Container extends Component {
   constructor() {
@@ -45,7 +45,7 @@ export default class Container extends Component {
     } else {
       element = (
         <div className="loading">
-          <img src={loadingPic} alt="loading" />
+          <Spinner />
         </div>
       );
     }

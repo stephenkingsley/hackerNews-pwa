@@ -137,11 +137,7 @@ ol {
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-.loading > img {
-  width: 200px;
-  height: 200px;
+  min-height: 400px;
 }
 
 .one-line-ellipsis {
