@@ -18,7 +18,6 @@ class App extends Container {
   }
 
   render() {
-    console.log(this.props);
     const { news } = this.props;
     return (
       <div>
@@ -30,7 +29,6 @@ class App extends Container {
 }
 
 const mapStateToProps = state => {
-  console.log(state);
   return state.comment;
 };
 

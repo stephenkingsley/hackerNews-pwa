@@ -4,26 +4,14 @@ export default props => {
   return (
     <div
       style={{
-        marginLeft: `${props.type * 40}px`
+        marginLeft: `${props.type * 20}px`
       }}
       className="comment-item"
       onClick={() => reply(props.id)}
     >
-      <span
-        style={{
-          textDecoration: "underline"
-        }}
-      >
-        {props.user}
-      </span>
+      <span className="user">{props.user}</span>
       &nbsp;&nbsp;&nbsp;
-      <span
-        style={{
-          color: "#999999"
-        }}
-      >
-        {props.timeAgo}
-      </span>
+      <span className="timeAgo">{props.timeAgo}</span>
       <div dangerouslySetInnerHTML={{ __html: props.content }} />
     </div>
   );

@@ -43,5 +43,3 @@ export default class Comment extends Component {
     return <div>{this.renderComponent(this.props.data)}</div>;
   }
 }
-
-// <div dangerouslySetInnerHTML={{ __html: this.props.content }} />

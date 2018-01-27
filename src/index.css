@@ -10,6 +10,22 @@ a {
   word-break: break-all;
 }
 
+.link {
+  text-decoration: underline;
+  color: #333333;
+  cursor: pointer;
+}
+
+.user {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.timeAgo {
+  color: #999999;
+  cursor: pointer;
+}
+
 a:link {
   color: #333333;
 }

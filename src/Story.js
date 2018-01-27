@@ -26,14 +26,7 @@ class Story extends Component {
             <li>points: {data.points}</li>
             <li>comments_count: {data.comments_count}</li>
             <li>time_ago: {data.time_ago}</li>
-            <li
-              style={{
-                textDecoration: "underline",
-                color: "#333333"
-              }}
-            >
-              reply
-            </li>
+            <li className="link">reply</li>
           </ol>
         </div>
       );
