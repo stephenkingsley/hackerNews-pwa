@@ -75,13 +75,13 @@ export default class Container extends Component {
       newTypeNext = `/${page + 1}`;
     }
     return (
-      <div className="footer-page">
+      <div className="page-navigation">
         <Link to={newTypePrve} onClick={() => this.scrollTop()}>
-          {"< prev --- "}
+          {"← prev "}
         </Link>
         <span>{page}</span>
         <Link to={newTypeNext} onClick={() => this.scrollTop()}>
-          {" --- next >"}
+          {" next →"}
         </Link>
       </div>
     );

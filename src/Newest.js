@@ -21,8 +21,8 @@ class Newest extends Container {
     const { newest } = this.props;
     return (
       <div>
-        {this.renderList(newest)}
         {this.renderPage("newest")}
+        {this.renderList(newest)}
       </div>
     );
   }

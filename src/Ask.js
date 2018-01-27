@@ -21,8 +21,8 @@ class Ask extends Container {
     const { ask } = this.props;
     return (
       <div>
-        {this.renderList(ask)}
         {this.renderPage("ask")}
+        {this.renderList(ask)}
       </div>
     );
   }

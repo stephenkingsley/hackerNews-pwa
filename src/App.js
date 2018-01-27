@@ -21,8 +21,8 @@ class App extends Container {
     const { news } = this.props;
     return (
       <div>
-        {this.renderList(news)}
         {this.renderPage()}
+        {this.renderList(news)}
       </div>
     );
   }

@@ -21,8 +21,8 @@ class Show extends Container {
     const { show } = this.props;
     return (
       <div>
-        {this.renderList(show)}
         {this.renderPage("show")}
+        {this.renderList(show)}
       </div>
     );
   }

@@ -86,7 +86,6 @@ ol {
 }
 
 .content {
-  margin-top: 48px;
 }
 
 .content li {
@@ -138,6 +137,12 @@ ol {
   padding: 1rem;
   font-size: 0.8rem;
   max-width: 100%;
+}
+
+.page-navigation {
+  margin-top: 60px;
+  width: 100%;
+  text-align: center;
 }
 
 .footer-page {

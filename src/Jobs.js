@@ -21,8 +21,8 @@ class Jobs extends Container {
     const { jobs } = this.props;
     return (
       <div>
-        {this.renderList(jobs)}
         {this.renderPage("jobs")}
+        {this.renderList(jobs)}
       </div>
     );
   }
