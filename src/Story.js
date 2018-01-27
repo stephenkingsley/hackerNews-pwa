@@ -1,4 +1,4 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { getItem } from './actions/comment';
 import Comment from './components/Comment';
@@ -18,7 +18,7 @@ class Story extends Component {
       return (
         <div className="story-top">
           <div className="story-title">
-            <a href={data.url} target="_blank">{data.title}</a>
+            <a href={data.url} target="_blank" rel="noopener noreferrer">{data.title}</a>
           </div>
           <ol className="story-ol" onClick={() => this.reply(data.id)}>
             <li>points: {data.points}</li>

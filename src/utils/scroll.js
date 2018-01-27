@@ -1,8 +1,7 @@
-let isRunning = false;
 /**
-* @parma {func} callback - 执行的回调，一定要是promise
-* @parma {object} options - 执行scroll事件的一些配置
-* @parma {num} options.bottom - 当滑到距离底部的距离时执行回调
+* @param {func} callback - 执行的回调，一定要是promise
+* @param {object} options - 执行scroll事件的一些配置
+* @param {num} options.bottom - 当滑到距离底部的距离时执行回调
 */
 export default (cb, options = {}) => {
   const loadMore = () => {

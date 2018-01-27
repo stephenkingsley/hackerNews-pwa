@@ -1,4 +1,4 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import Item from './components/Item';
 import { loadingPic } from './public/loading';

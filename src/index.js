@@ -1,5 +1,3 @@
-import querystring from 'querystring';
-
 import React from 'react';
 import ReactDOM from 'react-dom';
 
@@ -11,8 +9,7 @@ import reducer from './reducers'
 import {
   BrowserRouter as Router,
   Route,
-  Link,
-  Redirect
+  Link
 } from 'react-router-dom'
 
 import Default from './Default';

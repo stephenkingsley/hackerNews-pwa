@@ -1,7 +1,6 @@
-import React, { Component, PropTypes } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import { getData } from './actions/comment';
-import Scroll from './utils/scroll';
 import Container from './Container';
 
 class Show extends Container {
@@ -19,8 +18,7 @@ class Show extends Container {
   }
 
   render() {
-    const { show, match } = this.props;
-    const page = Number(match.params.page);
+    const { show } = this.props;
     return <div>
       {this.renderList(show)}
       {this.renderPage('show')}

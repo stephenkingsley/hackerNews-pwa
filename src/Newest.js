@@ -1,7 +1,6 @@
-import React, { Component, PropTypes } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import { getData } from './actions/comment';
-import Scroll from './utils/scroll';
 import Container from './Container';
 
 class Newest extends Container {
@@ -19,8 +18,7 @@ class Newest extends Container {
   }
 
   render() {
-    const { newest, match } = this.props;
-    const page = Number(match.params.page);
+    const { newest } = this.props;
     return <div>
       {this.renderList(newest)}
       {this.renderPage('newest')}

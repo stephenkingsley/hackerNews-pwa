@@ -1,18 +1,15 @@
 import React, { Component } from 'react';
 import {
   Link,
-  Redirect,
 } from 'react-router-dom'
 
 export default class Item extends Component {
   jumpUrl(event, url) {
     event.preventDefault();
     try {
-      const newUrl = new URL(url);
-      // window.location.href = url;
-      window.open(url);
+     window.open(url);
     } catch (e) {
-      const id = url.match(/id=([0-9]*)/, 'g');
+      // const id = url.match(/id=([0-9]*)/, 'g');
     }
   }
 
@@ -21,7 +18,7 @@ export default class Item extends Component {
     return (
       <li>
         <div>
-          <a onClick={(event) => this.jumpUrl(event,data.url)} target="_blank">{index + 1 + (page - 1) * 30}.{data.title}</a>
+          <a onClick={(event) => this.jumpUrl(event,data.url)} target="_blank" rel="noopener noreferrer">{index + 1 + (page - 1) * 30}.{data.title}</a>
         </div>
         <div>
           <Link to={`/item/${data.id}`}>

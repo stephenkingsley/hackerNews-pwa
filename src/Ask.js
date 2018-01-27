@@ -1,9 +1,7 @@
-import React, { Component, PropTypes } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import { getData } from './actions/comment';
-import Scroll from './utils/scroll';
 import Container from './Container';
-import Item from './components/Item';
 
 class Ask extends Container {
   componentWillMount() {
