@@ -1,17 +1,17 @@
-import React from 'react';
+import React from "react";
 
-export default (props) => {
+export default props => {
   return (
     <div
       style={{
-        marginLeft: `${props.type * 40}px`,
+        marginLeft: `${props.type * 40}px`
       }}
       className="comment-item"
       onClick={() => reply(props.id)}
     >
       <span
         style={{
-          textDecoration: 'underline',
+          textDecoration: "underline"
         }}
       >
         {props.user}
@@ -19,18 +19,16 @@ export default (props) => {
       &nbsp;&nbsp;&nbsp;
       <span
         style={{
-          color: '#999999',
+          color: "#999999"
         }}
       >
         {props.timeAgo}
       </span>
-      <div
-        dangerouslySetInnerHTML={{ __html: props.content }}
-      />
+      <div dangerouslySetInnerHTML={{ __html: props.content }} />
     </div>
   );
 };
 
-const reply = (id) => {
+const reply = id => {
   window.location.href = `https://news.ycombinator.com/reply?id=${id}`;
 };

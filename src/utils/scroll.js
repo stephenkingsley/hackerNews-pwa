@@ -1,13 +1,13 @@
 /**
-* @param {func} callback - 执行的回调，一定要是promise
-* @param {object} options - 执行scroll事件的一些配置
-* @param {num} options.bottom - 当滑到距离底部的距离时执行回调
-*/
+ * @param {func} callback - 执行的回调，一定要是promise
+ * @param {object} options - 执行scroll事件的一些配置
+ * @param {num} options.bottom - 当滑到距离底部的距离时执行回调
+ */
 export default (cb, options = {}) => {
   const loadMore = () => {
     window.requestAnimationFrame(() => {
       let bottom = getWindowHeight() / 3;
-      if (options && Object.hasOwnProperty.call(options, 'bottom')) {
+      if (options && Object.hasOwnProperty.call(options, "bottom")) {
         bottom = options.bottom;
       }
 
@@ -16,7 +16,7 @@ export default (cb, options = {}) => {
       }
     });
   };
-  window.addEventListener('scroll', loadMore, false);
+  window.addEventListener("scroll", loadMore, false);
 };
 
 const getScrollTop = () => {
@@ -29,7 +29,8 @@ const getScrollTop = () => {
   if (document.documentElement) {
     documentScrollTop = document.documentElement.scrollTop;
   }
-  scrollTop = (bodyScrollTop - documentScrollTop > 0) ? bodyScrollTop : documentScrollTop;
+  scrollTop =
+    bodyScrollTop - documentScrollTop > 0 ? bodyScrollTop : documentScrollTop;
   return scrollTop;
 };
 
@@ -43,14 +44,16 @@ const getScrollHeight = () => {
   if (document.documentElement) {
     documentScrollHeight = document.documentElement.scrollHeight;
   }
-  scrollHeight = (bodyScrollHeight - documentScrollHeight > 0) ?
-    bodyScrollHeight : documentScrollHeight;
+  scrollHeight =
+    bodyScrollHeight - documentScrollHeight > 0
+      ? bodyScrollHeight
+      : documentScrollHeight;
   return scrollHeight;
 };
 
 const getWindowHeight = () => {
   let windowHeight = 0;
-  if (document.compatMode === 'CSS1Compat') {
+  if (document.compatMode === "CSS1Compat") {
     windowHeight = document.documentElement.clientHeight;
   } else {
     windowHeight = document.body.clientHeight;

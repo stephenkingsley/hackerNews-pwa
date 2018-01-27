@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { getItem } from './actions/comment';
-import Comment from './components/Comment';
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import { getItem } from "./actions/comment";
+import Comment from "./components/Comment";
 
 class Story extends Component {
   componentWillMount() {
@@ -14,11 +14,13 @@ class Story extends Component {
   }
 
   renderDescription(data) {
-    if (data && Object.hasOwnProperty.call(data, 'title')) {
+    if (data && Object.hasOwnProperty.call(data, "title")) {
       return (
         <div className="story-top">
           <div className="story-title">
-            <a href={data.url} target="_blank" rel="noopener noreferrer">{data.title}</a>
+            <a href={data.url} target="_blank" rel="noopener noreferrer">
+              {data.title}
+            </a>
           </div>
           <ol className="story-ol" onClick={() => this.reply(data.id)}>
             <li>points: {data.points}</li>
@@ -26,8 +28,8 @@ class Story extends Component {
             <li>time_ago: {data.time_ago}</li>
             <li
               style={{
-                textDecoration: 'underline',
-                color: '#333333',
+                textDecoration: "underline",
+                color: "#333333"
               }}
             >
               reply
@@ -39,11 +41,14 @@ class Story extends Component {
   }
 
   renderComments(data) {
-    if (data && Object.hasOwnProperty.call(data, 'comments') && data.comments.length > 0) {
+    if (
+      data &&
+      Object.hasOwnProperty.call(data, "comments") &&
+      data.comments.length > 0
+    ) {
       return (
         <div>
-          {data.comments.map((ele, key) =>
-            <Comment data={ele} key={key} />)}
+          {data.comments.map((ele, key) => <Comment data={ele} key={key} />)}
         </div>
       );
     }
