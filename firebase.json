@@ -11,6 +11,17 @@
       "firebase.json",
       "**/.*",
       "**/node_modules/**"
+    ],
+    "headers": [
+      {
+        "source": "**",
+        "headers": [
+          {
+            "key": "Link",
+            "value": "<https://node-hnapi.herokuapp.com>;rel=preconnect;crossorigin"
+          }
+        ]
+      }
     ]
   }
 }
