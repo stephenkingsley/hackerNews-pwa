@@ -59,14 +59,7 @@ ReactDOM.render(
     <Router>
       <div>
         <div className="topbar">
-          <img
-            style={{
-              width: "20px",
-              height: "20px"
-            }}
-            src="https://news.ycombinator.com/y18.gif"
-            alt="logo"
-          />
+          <div className="logo">Y</div>
           <ul>
             <li className="channel">
               <Link to="/1" onClick={event => changeChannel(event)}>
