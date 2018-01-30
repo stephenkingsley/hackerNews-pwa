@@ -1,10 +1,10 @@
-import { combineReducers } from 'redux';
-import comment from './comment';
-import story from './story';
+import { combineReducers } from "redux";
+import comment from "./comment";
+import story from "./story";
 
 const rootReducer = combineReducers({
   comment,
-  story,
+  story
 });
 
 export default rootReducer;

@@ -1,13 +1,13 @@
-import React, { Component, PropTypes } from 'react';
-import { Link } from 'react-router-dom';
-import Item from './components/Item';
-import { loadingPic } from './public/loading';
+import React, { Component } from "react";
+import { Link } from "react-router-dom";
+import Item from "./components/Item";
+import Spinner from "./components/Spinner";
 
 export default class Container extends Component {
   constructor() {
     super();
     this.state = {
-      page: 1,
+      page: 1
     };
   }
 
@@ -22,7 +22,12 @@ export default class Container extends Component {
   renderItem(data) {
     if (data && data.length > 0) {
       return data.map((ele, index) => (
-        <Item index={index} data={ele} key={index} page={this.props.match.params.page} />
+        <Item
+          index={index}
+          data={ele}
+          key={index}
+          page={this.props.match.params.page}
+        />
       ));
     }
   }
@@ -30,33 +35,29 @@ export default class Container extends Component {
   renderLoading() {
     const { match } = this.props;
     const page = Number(match.params.page);
-    let element;
     if (page > 1) {
-      element = (
+      return (
         <div className="footer-page">
           content is null, please read prev page!
         </div>
       );
     } else {
-      element = (
+      return (
         <div className="loading">
-          <img src={loadingPic} alt="loading" />
+          <Spinner />
         </div>
       );
     }
-    return element;
   }
 
   renderList(data) {
     return (
       <div className="content">
-        {
-          (data && data.length) > 0 ?
-            <ol>
-              {this.renderItem(data)}
-            </ol> :
-            this.renderLoading()
-        }
+        {(data && data.length) > 0 ? (
+          <ol>{this.renderItem(data)}</ol>
+        ) : (
+          this.renderLoading()
+        )}
       </div>
     );
   }
@@ -67,17 +68,21 @@ export default class Container extends Component {
     let newTypePrve;
     let newTypeNext;
     if (type) {
-      newTypePrve = `/${type}/${(page - 1) > 1 ? page - 1 : 1}`
+      newTypePrve = `/${type}/${page - 1 > 1 ? page - 1 : 1}`;
       newTypeNext = `/${type}/${page + 1}`;
     } else {
-      newTypePrve = `/${(page - 1) > 1 ? page - 1 : 1}`
+      newTypePrve = `/${page - 1 > 1 ? page - 1 : 1}`;
       newTypeNext = `/${page + 1}`;
     }
     return (
-      <div className="footer-page">
-        <Link to={newTypePrve} onClick={() => this.scrollTop()}>{'< prev --- '}</Link>
+      <div className="page-navigation">
+        <Link to={newTypePrve} onClick={() => this.scrollTop()}>
+          {"← prev "}
+        </Link>
         <span>{page}</span>
-        <Link to={newTypeNext} onClick={() => this.scrollTop()}>{' --- next >'}</Link>
+        <Link to={newTypeNext} onClick={() => this.scrollTop()}>
+          {" next →"}
+        </Link>
       </div>
     );
   }

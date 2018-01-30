@@ -1,9 +1,9 @@
-import React, { Component, PropTypes } from 'react';
-import { Redirect } from 'react-router-dom';
+import React, { Component } from "react";
+import { Redirect } from "react-router-dom";
 
 class Default extends Component {
   render() {
-    return <Redirect to="/1" />
+    return <Redirect to="/1" />;
   }
 }
 

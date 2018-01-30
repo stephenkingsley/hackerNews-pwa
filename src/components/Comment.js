@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import CommentItem from './CommentItem';
+import React, { Component } from "react";
+import CommentItem from "./CommentItem";
 
 export default class Comment extends Component {
   constructor() {
@@ -40,12 +40,6 @@ export default class Comment extends Component {
   }
 
   render() {
-    return (
-      <div>
-        {this.renderComponent(this.props.data)}
-      </div>
-    );
+    return <div>{this.renderComponent(this.props.data)}</div>;
   }
 }
-
-// <div dangerouslySetInnerHTML={{ __html: this.props.content }} />
