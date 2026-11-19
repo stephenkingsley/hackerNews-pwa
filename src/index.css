@@ -73,17 +73,46 @@ ol {
   margin-top: 48px;
 }
 
-.content li {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  align-items: center;
-  margin-left: -1.2rem;
+/* masonry (waterfall) list: CSS columns, responsive column count */
+.content ol.masonry {
+  list-style: none;
+  margin: 0;
+  padding: 0.8rem;
+  columns: 1;
+  column-gap: 1rem;
+}
+
+@media (min-width: 600px) {
+  .content ol.masonry { columns: 2; }
+}
+
+@media (min-width: 960px) {
+  .content ol.masonry { columns: 3; }
+}
+
+@media (min-width: 1280px) {
+  .content ol.masonry { columns: 4; }
+}
+
+.content ol.masonry > li {
+  display: block;
+  height: auto;
+  overflow: visible;
+  break-inside: avoid;
+  -webkit-column-break-inside: avoid;
+  box-sizing: border-box;
   width: 100%;
-  overflow: hidden;
-  height: 4rem;
-  border-bottom: 1px solid #ebebeb;
-  padding: 0.3rem 0;
+  margin: 0 0 1rem;
+  padding: 0.8rem;
+  border: 1px solid #ebebeb;
+  border-radius: 4px;
+  background: #fff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+  text-align: left;
+}
+
+.content ol.masonry > li > div:first-child {
+  margin-bottom: 0.4rem;
 }
 
 .content li div {

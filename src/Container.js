@@ -52,7 +52,7 @@ export default class Container extends Component {
       <div className="content">
         {
           (data && data.length) > 0 ?
-            <ol>
+            <ol className="masonry">
               {this.renderItem(data)}
             </ol> :
             this.renderLoading()
