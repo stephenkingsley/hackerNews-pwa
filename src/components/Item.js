@@ -1,38 +1,42 @@
-import React, { Component } from 'react';
-import {
-  Link,
-  Redirect,
-} from 'react-router-dom'
+import React from 'react';
+import { Text, View, TouchableOpacity, StyleSheet } from 'react-native';
+import { openExternalUrl } from '../utils/openLink';
 
-export default class Item extends Component {
-  jumpUrl(event, url) {
-    event.preventDefault();
-    try {
-      const newUrl = new URL(url);
-      // window.location.href = url;
-      window.open(url);
-    } catch (e) {
-      const id = url.match(/id=([0-9]*)/, 'g');
-    }
-  }
+const Item = ({ data, index, page, onPress }) => {
+  return (
+    <View style={styles.container}>
+      <TouchableOpacity onPress={() => openExternalUrl(data.url)} activeOpacity={0.6}>
+        <Text style={styles.title}>
+          {index + 1 + (page - 1) * 30}.{data.title}
+        </Text>
+      </TouchableOpacity>
+      <TouchableOpacity onPress={onPress} activeOpacity={0.6}>
+        <Text style={styles.footer}>
+          {data.points ? `${data.points} by ${data.user} |` : '  '}
+          {'  ' + data.time_ago} |
+          {data.comments_count > 0 ? `   ${data.comments_count}   comments` : '   discuss'}
+        </Text>
+      </TouchableOpacity>
+    </View>
+  );
+};
 
-  render() {
-    const { data, index, page } = this.props;
-    return (
-      <li>
-        <div>
-          <a onClick={(event) => this.jumpUrl(event,data.url)} target="_blank">{index + 1 + (page - 1) * 30}.{data.title}</a>
-        </div>
-        <div>
-          <Link to={`/item/${data.id}`}>
-            <span className="item-footer">
-              { data.points ? `${data.points} by ${data.user} |` : '  ' }
-              {'  ' + data.time_ago} |
-              {data.comments_count > 0 ? `   ${data.comments_count}   comments` : '   discuss'}
-            </span>
-          </Link>
-        </div>
-      </li>
-    );
-  }
-}
+const styles = StyleSheet.create({
+  container: {
+    borderBottomWidth: 1,
+    borderBottomColor: '#ebebeb',
+    paddingVertical: 8,
+    paddingHorizontal: 16,
+  },
+  title: {
+    fontSize: 16,
+    color: '#333333',
+  },
+  footer: {
+    fontSize: 13,
+    color: '#999999',
+    textDecorationLine: 'underline',
+  },
+});
+
+export default Item;

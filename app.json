@@ -1,0 +1,25 @@
+{
+  "expo": {
+    "name": "Hacker News",
+    "slug": "hacker-news-pwa",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./public/192x192.png",
+    "userInterfaceStyle": "light",
+    "backgroundColor": "#ffffff",
+    "android": {
+      "package": "com.stephenkingsley.hackernewspwa",
+      "adaptiveIcon": {
+        "foregroundImage": "./public/512x512.png",
+        "backgroundColor": "#ffffff"
+      }
+    },
+    "ios": {
+      "bundleIdentifier": "com.stephenkingsley.hackernewspwa"
+    },
+    "web": {
+      "favicon": "./public/favicon-48.png",
+      "bundler": "webpack"
+    }
+  }
+}
