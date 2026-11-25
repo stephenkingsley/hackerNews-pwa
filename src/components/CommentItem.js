@@ -1,36 +1,44 @@
-import React, { Component } from 'react';
+import React from 'react';
+import { Text, TouchableOpacity, StyleSheet } from 'react-native';
+import { openExternalUrl } from '../utils/openLink';
+import { htmlToText } from '../utils/html';
 
-export default (props) => {
+const CommentItem = ({ user, timeAgo, content, type = 1, id }) => {
   return (
-    <div
-      style={{
-        marginLeft: `${props.type * 40}px`,
-      }}
-      className="comment-item"
-      onClick={() => reply(props.id)}
+    <TouchableOpacity
+      style={[styles.container, { marginLeft: type * 20 }]}
+      onPress={() => openExternalUrl(`https://news.ycombinator.com/reply?id=${id}`)}
     >
-      <span
-        style={{
-          textDecoration: 'underline',
-        }}
-      >
-        {props.user}
-      </span>
-      &nbsp;&nbsp;&nbsp;
-      <span
-        style={{
-          color: '#999999',
-        }}
-      >
-        {props.timeAgo}
-      </span>
-      <div
-        dangerouslySetInnerHTML={{ __html: props.content }}
-      />
-    </div>
+      <Text style={styles.meta}>
+        <Text style={styles.user}>{user}</Text>
+        {'    '}
+        <Text style={styles.time}>{timeAgo}</Text>
+      </Text>
+      <Text style={styles.content}>{htmlToText(content)}</Text>
+    </TouchableOpacity>
   );
 };
 
-const reply = (id) => {
-  window.location.href = `https://news.ycombinator.com/reply?id=${id}`;
-};
+const styles = StyleSheet.create({
+  container: {
+    borderBottomWidth: 1,
+    borderBottomColor: '#ebebeb',
+    padding: 16,
+    maxWidth: '100%',
+  },
+  meta: {
+    fontSize: 13,
+  },
+  user: {
+    textDecorationLine: 'underline',
+  },
+  time: {
+    color: '#999999',
+  },
+  content: {
+    fontSize: 13,
+    marginTop: 4,
+  },
+});
+
+export default CommentItem;
